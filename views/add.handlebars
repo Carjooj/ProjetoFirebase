@@ -1,0 +1,33 @@
+<form action="/add" method="post">
+    <legend>Cadastre seu dados aqui</legend>
+    <label for="labelnome">Nome</label>
+    <input type="text" name="nome" id="nome">
+    <label for="labeltelefone">Telefone</label>
+    <input type="number" name="telefone" id="telefone">
+    <label for="labelemail">Email</label>
+    <input type="text" name="email" id="email">
+    <button class="btn btn-primary">Adicionar</button>
+</form>
+
+<form action="/update" method="post">
+    <legend>Digite o nome para poder atualizar os dados</legend>
+    <label for="labelnomeold">Nome atual</label>
+    <input type="text" name="nomeold" id="nomeold">
+    <label for="labelnomeup">Nome novo</label>
+    <input type="text" name="nomeup" id="nomeup">
+    <label for="labeltelefoneup">Telefone novo</label>
+    <input type="number" name="telefoneup" id="telefoneup">
+    <label for="labelemailup">Email novo</label>
+    <input type="text" name="emailup" id="emailup">
+    <button class="btn btn-warning">Atualizar</button>
+</form>
+
+
+
+<div>
+    {{#each data}}
+    <p>{{nome}}</p>
+    <p>{{telefone}}</p>
+    <p>{{email}}</p>
+    {{/each}}
+</div>
