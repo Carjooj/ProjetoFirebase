@@ -2,9 +2,14 @@ const express = require("express")
 const app = express()
 const handlebars = require("express-handlebars").engine
 const bodyParser = require("body-parser")
-const firestore = require("./models/firestore")
+// const {  initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+// const { getAuth, GoogleAuthProvider, signInWithPopup } = require("firebase/auth");
 
 
+// const serviceAccount = require('./projetoweb-92f39-firebase-adminsdk-p9zgp-7dfc4f811c.json');
+
+
+app.use(express.static('public'));
 
 app.engine("handlebars", handlebars({ defaultLayout: "main" }))
 app.set("view engine", "handlebars")
@@ -13,14 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get("/", function (req, res) {
-    const agendamentos = firestore.db.collection('agendamentos')
-    agendamentos.get().then((data) => {
-        const arr = []
-        data.forEach(item => {
-            arr.push(item.data())
-        });
-        res.render("add", { data: arr })
-    })
+    res.render("add")
 })
 
 app.post("/add", function (req, res) {
@@ -95,6 +93,7 @@ const deletar = async function (collection, doc) {
     const res = await firestore.db.collection(collection).doc(doc).delete();
 }
 
+
 /*const read = async function (doc) {
     const ref = firestore.db.collection('agendamentos').doc(doc);
     const get = await ref.get();
@@ -102,7 +101,6 @@ const deletar = async function (collection, doc) {
     console.log(data)
     res.render("add", data)
 }*/
-
 
 app.listen(8081, function () {
     console.log("Rodando")
