@@ -85,30 +85,30 @@
                         &nbsp;
                     </div>
                 </div>
-                {{#each post}}
-                    {{#dataValues}}
-                    <div class="row">
-                        <div class="col">
-                            {{nome}}
-                        </div>
-                        <div class="col">
-                            {{telefone}}
-                        </div>
-                        <div class="col">
-                            {{origem}}
-                        </div>
-                        <div class="col">
-                            {{data_contato}}
-                        </div>
-                        <div class="col">
-                            {{observacao}}
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-primary"><a href="/editar/{{id}}" style="color:inherit">Editar</a></button>
-                            <button type="button" class="btn btn-primary"><a href="/excluir/{{id}}" style="color:inherit">Excluir</a></button>
-                        </div>
+                {{#each arr}}
+                <div class="row">
+                    <div class="col">
+                        {{dataValues.nome}}
                     </div>
-                    {{/dataValues}}
+                    <div class="col">
+                        {{dataValues.telefone}}
+                    </div>
+                    <div class="col">
+                        {{dataValues.origem}}
+                    </div>
+                    <div class="col">
+                        {{dataValues.data_contato}}
+                    </div>
+                    <div class="col">
+                        {{dataValues.observacao}}
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary"><a href="/editar/{{id}}"
+                                style="color:inherit">Editar</a></button>
+                        <button type="button" class="btn btn-primary"><a href="/excluir/{{id}}"
+                                style="color:inherit">Excluir</a></button>
+                    </div>
+                </div>
                 {{/each}}
             </div>
             </p>
